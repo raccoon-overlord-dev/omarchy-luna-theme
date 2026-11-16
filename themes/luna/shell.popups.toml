@@ -1,0 +1,9 @@
+[popups]
+# Bar flyouts draw their text with the bar's text color (white), so the card is
+# a deeper Luna blue instead of white.
+background       = "#1F55C8"
+background-alpha = 1.0
+text             = "#FFFFFF"
+border           = "#7FB0FF"
+border-alpha     = 1.0
+border-width     = 1

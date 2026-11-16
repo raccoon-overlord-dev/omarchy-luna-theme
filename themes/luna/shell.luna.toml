@@ -1,0 +1,10 @@
+[luna]
+start-top      = "#58B858"
+start-mid      = "#3C9C3C"
+start-bottom   = "#318E31"
+start-pressed  = "#22701F"
+start-text     = "#FFFFFF"
+start-logo     = "#FFFFFF"
+start-shadow   = "#47000000"
+ws-empty       = "#99FFFFFF"
+inset          = "1"

@@ -1,0 +1,45 @@
+# Luna — light. Classic Luna palette, tuned for readability.
+mode = "light"
+
+accent    = "#245EDC"
+selection = "#C9DAF8"
+muted     = "#8A8F98"
+
+background         = "#FBFAF5"
+lighter_background = "#F3F1E8"
+dark_background    = "#ECE9D8"   # Luna beige — Qt window chrome
+darker_background  = "#E2DECB"
+
+foreground        = "#1E2430"
+light_foreground  = "#2B3240"
+dark_foreground   = "#5B6170"
+bright_foreground = "#0E1320"
+
+red     = "#C4281C"
+orange  = "#C25E00"
+yellow  = "#9A6700"
+green   = "#2E8B2E"
+cyan    = "#0E7C99"
+blue    = "#245EDC"
+magenta = "#8B3FB8"
+brown   = "#7A5230"
+
+color0  = "#1E2430"
+color1  = "#C4281C"
+color2  = "#2E8B2E"
+color3  = "#9A6700"
+color4  = "#245EDC"
+color5  = "#8B3FB8"
+color6  = "#0E7C99"
+color7  = "#D6D2C2"
+color8  = "#8A8F98"
+color9  = "#E04343"
+color10 = "#3C9C3C"
+color11 = "#B87F00"
+color12 = "#3A81F3"
+color13 = "#A65BD1"
+color14 = "#1592B5"
+color15 = "#FFFFFF"
+
+hyprland_active_border = "rgba(3a81f3ff) rgba(3c9c3cff) 45deg"
+hyprland_inactive_border = "rgba(c9c5b4ff)"

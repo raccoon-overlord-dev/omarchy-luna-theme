@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "luna.start",
+  "name": "Luna start block",
+  "version": "0.1.0",
+  "author": "raccoon-overlord-dev",
+  "description": "Omarchy logo + workspaces in a Luna-style start block. Colors come from luna_* keys in the active theme's colors.toml, falling back to accent.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Widget.qml"
+  },
+  "barWidget": {
+    "displayName": "Luna start block",
+    "category": "Workspaces",
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": {
+      "count": 5
+    },
+    "schema": [
+      {
+        "key": "count",
+        "type": "int",
+        "label": "Workspaces shown"
+      }
+    ]
+  }
+}

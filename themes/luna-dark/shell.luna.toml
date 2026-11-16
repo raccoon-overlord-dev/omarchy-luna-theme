@@ -1,0 +1,10 @@
+[luna]
+start-top      = "transparent"
+start-mid      = "transparent"
+start-bottom   = "transparent"
+start-pressed  = "#3FA34A"
+start-text     = "#E6E8EB"
+start-logo     = "#4C8DFF"
+start-shadow   = "transparent"
+ws-empty       = "#6E747C"
+inset          = "0"
