@@ -24,6 +24,13 @@ omarchy plugin disable luna.start >/dev/null 2>&1 || true
 rm -rf "$OMARCHY_CFG/plugins/luna.start" "$OMARCHY_CFG/themes/luna" "$OMARCHY_CFG/themes/luna-dark" "$STATE"
 rm -f "$OMARCHY_CFG/hooks/theme-set.d/luna.sh"
 
+# Belt and braces: if the hook could not run above, Inherits=ModernXP would
+# outlive the cursor we are about to delete.
+if [[ -f $HOME/.local/share/icons/default/.luna ]]; then
+  rm -f "$HOME/.local/share/icons/default/index.theme" "$HOME/.local/share/icons/default/.luna"
+  rmdir "$HOME/.local/share/icons/default" 2>/dev/null
+fi
+
 # ModernXP is shared with other themes: keep it while one still needs it.
 if ! ls "$OMARCHY_CFG/themes" 2>/dev/null | grep -q '^windows-xp'; then
   rm -rf "$HOME/.local/share/icons/ModernXP"

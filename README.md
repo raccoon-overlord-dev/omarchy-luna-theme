@@ -31,7 +31,7 @@ omarchy theme set luna        # light
 omarchy theme set luna-dark   # dark
 ```
 
-Switching to any other theme puts your previous bar widgets and cursor back (the hook saves them in `~/.local/state/omarchy/luna/`).
+Switching to any other theme puts your previous bar widgets and cursor back (the hook saves them in `~/.local/state/omarchy/luna/`). While a Luna variant is active the hook also points `~/.local/share/icons/default` at the cursor, so it is right from login (skipped if you already have a `default` cursor theme there); that file goes away with the theme.
 
 ## Uninstall
 

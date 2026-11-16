@@ -6,6 +6,7 @@
 THEME=$1
 STATE="$HOME/.local/state/omarchy/luna"
 SHELL_JSON="$HOME/.config/omarchy/shell.json"
+DEFAULT_ICONS="$HOME/.local/share/icons/default"
 mkdir -p "$STATE"
 
 # Rewrites shell.json in place (same inode) so the shell's file watcher reloads it.
@@ -20,6 +21,22 @@ edit_shell_json() {
 set_cursor() {
   hyprctl setcursor "$1" 24 >/dev/null 2>&1
   [[ -n ${DBUS_SESSION_BUS_ADDRESS:-} ]] && gsettings set org.gnome.desktop.interface cursor-theme "$1"
+}
+
+# hyprctl setcursor is runtime only; the "default" theme's Inherits makes the
+# choice survive a reboot, for Hyprland and XWayland alike.
+own_default_icons() {
+  # A dangling symlink is still not ours, and -e is false for one.
+  [[ ( -e $DEFAULT_ICONS || -L $DEFAULT_ICONS ) && ! -f $DEFAULT_ICONS/.luna ]] && return 0
+  mkdir -p "$DEFAULT_ICONS" && touch "$DEFAULT_ICONS/.luna" &&
+    printf '[Icon Theme]\nName=default\nInherits=%s\n' "$1" >"$DEFAULT_ICONS/index.theme"
+}
+
+drop_default_icons() {
+  [[ -f $DEFAULT_ICONS/.luna ]] || return 0
+  rm -f "$DEFAULT_ICONS/index.theme" "$DEFAULT_ICONS/.luna"
+  rmdir "$DEFAULT_ICONS" 2>/dev/null
+  return 0
 }
 
 case $THEME in
@@ -39,6 +56,7 @@ case $THEME in
       echo "${cur:-default}" >"$STATE/cursor"
     fi
     set_cursor ModernXP
+    own_default_icons ModernXP
     ;;
   *)
     if [[ -f $STATE/removed.json ]]; then
@@ -54,5 +72,6 @@ case $THEME in
       [[ $THEME == windows-xp* ]] || set_cursor "$(cat "$STATE/cursor")"
       rm -f "$STATE/cursor"
     fi
+    drop_default_icons
     ;;
 esac
